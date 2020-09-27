@@ -8,3 +8,5 @@ SECRET_KEY = 'Some Secret Key'
 SQLALCHEMY_DATABASE_URI = 'sqlite:///db_movies_cf_app.db'
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 
+
+
