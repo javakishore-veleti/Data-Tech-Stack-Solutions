@@ -7,7 +7,8 @@ from application import settings, app_config
 from flask import request, redirect, url_for, render_template, flash, session
 import pathlib
 
-from application.app_url_constants import DATA_INGEST_LISTING, DATA_INGEST_MOVIES_DATA_DOWNLOAD
+from application.app_url_constants import DATA_INGEST_LISTING, DATA_INGEST_MOVIES_DATA_DOWNLOAD, \
+    ML_MODEL_DEV_CREATE_CF_ML_MODEL
 
 
 def initialize_db(app):
@@ -68,10 +69,12 @@ def favicon():
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
-from data_ingest import views
+from data_ingest import views as data_ingest_views
+from ml_model_dev import views as ml_model_dev_views
 
-app.add_url_rule(DATA_INGEST_LISTING, view_func=views.data_ingest_list)
-app.add_url_rule(DATA_INGEST_MOVIES_DATA_DOWNLOAD, view_func=views.download_movies_data)
+app.add_url_rule(DATA_INGEST_LISTING, view_func=data_ingest_views.data_ingest_list)
+app.add_url_rule(DATA_INGEST_MOVIES_DATA_DOWNLOAD, view_func=data_ingest_views.download_movies_data)
+app.add_url_rule(ML_MODEL_DEV_CREATE_CF_ML_MODEL, view_func=ml_model_dev_views.create_movies_cf_ml_model)
 
 
 if __name__ == '__main__':
