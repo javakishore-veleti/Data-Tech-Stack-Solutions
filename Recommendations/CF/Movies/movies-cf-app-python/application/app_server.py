@@ -9,6 +9,7 @@ import pathlib
 
 from application.app_url_constants import DATA_INGEST_LISTING, DATA_INGEST_MOVIES_DATA_DOWNLOAD, \
     ML_MODEL_DEV_CREATE_CF_ML_MODEL
+from common_api.global_vars import initialize_global_vars, initialize_all_other_modules
 
 
 def initialize_db(app):
@@ -41,7 +42,8 @@ app = Flask(__name__, root_path=root_path, )
 app = initialize_app(app)
 
 
-# from data_ingest.views import *
+initialize_global_vars()
+initialize_all_other_modules()
 
 
 @app.route('/', methods=['GET', 'POST'])

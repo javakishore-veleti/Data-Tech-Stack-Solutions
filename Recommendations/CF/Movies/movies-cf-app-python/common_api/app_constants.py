@@ -1,0 +1,1 @@
+THIS_APP_PACKAGES_TO_LOAD = ['adapters','data_ingest', 'ml_model_dev']
